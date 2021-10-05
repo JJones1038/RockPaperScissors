@@ -122,7 +122,9 @@ int main() {
 		cout << endl;
 	} while (response == 'Y' || response == 'y');
 
-	cout << "You won " << userWins << " out of " << gameCount << " games!";
+	cout << "You won " << userWins << " out of " << gameCount << " game(s)!";
+	cout << endl;
+	cout << "Thanks for playing!" << endl;
 	cout << endl;
 	return 0;
 
