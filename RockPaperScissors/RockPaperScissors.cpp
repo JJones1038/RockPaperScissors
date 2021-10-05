@@ -30,6 +30,7 @@ void printInsturctions() {
 	cout << "'S' for SCISSORS, and the press ENTER.\n";
 	cout << "You may quit at anytime.\n";
 	cout << "==================================================================\n";
+	cout << endl;
 }
 
 // The computer selects a weapon at random.
@@ -65,6 +66,7 @@ char showWeapon(char option) {
 }
 
 char selectWinner(char uChoice, char cChoice) {
+	int userWins = 0;
 	if (uChoice == ROCK && cChoice == PAPER)
 	{
 		cout << "Computer Wins! Paper wraps Rock." << endl;
@@ -80,14 +82,17 @@ char selectWinner(char uChoice, char cChoice) {
 	else if (uChoice == ROCK && cChoice == SCISSORS)
 	{
 		cout << "You Win! Rock smashes Scissors." << endl;
+		userWins++;
 	}
 	else if (uChoice == PAPER && cChoice == ROCK)
 	{
 		cout << "You Win! Paper wraps Rock" << endl;
+		userWins++;
 	}
 	else if (uChoice == SCISSORS && cChoice == PAPER)
 	{
 		cout << "You Win! Scissors cut Paper." << endl;
+		userWins++;
 	}
 	else
 	{
@@ -97,17 +102,15 @@ char selectWinner(char uChoice, char cChoice) {
 }
 
 int main() {
-	int response;
+	char response;
 	char uChoice;  //variable to store the users choice of weapon
 	char cChoice;  //variable to store the computers choice of weapon
+	int gameCount = 0;
+	int userWins = 0;
 
-	printInsturctions(); //Brief explanation of the game and how it is played.
+	printInsturctions(); //Brief explanation of the game and how it is played
 
-	cout << "Enter Y/y to play the game: ";  //ask the user if they want to play the game.
-	cin >> response;
-	cout << endl;
-
-	while (response == 'Y' || response == 'y')
+	do
 	{
 		uChoice = getUserWeapon();
 		cout << "Player Picked: " << showWeapon(uChoice) << endl;
@@ -116,6 +119,15 @@ int main() {
 		cout << "Computer Picked: " << showWeapon(cChoice) << endl;
 
 		selectWinner(uChoice, cChoice);
-	}
+		gameCount++;
+
+		cout << "Do you want to play again? (Y/N) ";
+		cin >> response;
+		cout << endl;
+	} while (response == 'Y' || response == 'y');
+
+	cout << "You won " << userWins << " out of " << gameCount << " games!";
 	return 0;
+
+	
 }
