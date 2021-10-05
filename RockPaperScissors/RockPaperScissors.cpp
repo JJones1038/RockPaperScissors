@@ -7,11 +7,7 @@ const char ROCK = 'r';
 const char PAPER = 'p';
 const char SCISSORS = 's';
 
-
-
-
-
-void printInsturctions() {
+void printInstructions() {
 	cout << "==================================================================\n";
 	cout << "Welcome to the game of Rock, Paper, and Scissors.\n";
 	cout << "This is a game for two players, which you will be\n";
@@ -108,7 +104,7 @@ int main() {
 	int gameCount = 0;
 	int userWins = 0;
 
-	printInsturctions(); //Brief explanation of the game and how it is played
+	printInstructions(); //Brief explanation of the game and how it is played
 
 	do
 	{
