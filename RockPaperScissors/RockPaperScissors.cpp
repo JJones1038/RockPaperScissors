@@ -62,7 +62,6 @@ char showWeapon(char option) {
 }
 
 char selectWinner(char uChoice, char cChoice) {
-	int userWins = 0;
 	if (uChoice == ROCK && cChoice == PAPER)
 	{
 		cout << "Computer Wins! Paper wraps Rock." << endl;
@@ -78,17 +77,14 @@ char selectWinner(char uChoice, char cChoice) {
 	else if (uChoice == ROCK && cChoice == SCISSORS)
 	{
 		cout << "You Win! Rock smashes Scissors." << endl;
-		userWins++;
 	}
 	else if (uChoice == PAPER && cChoice == ROCK)
 	{
 		cout << "You Win! Paper wraps Rock" << endl;
-		userWins++;
 	}
 	else if (uChoice == SCISSORS && cChoice == PAPER)
 	{
 		cout << "You Win! Scissors cut Paper." << endl;
-		userWins++;
 	}
 	else
 	{
@@ -116,6 +112,10 @@ int main() {
 
 		selectWinner(uChoice, cChoice);
 		gameCount++;
+		if (uChoice > cChoice)
+		{
+			userWins++;
+		}
 
 		cout << "Do you want to play again? (Y/N) ";
 		cin >> response;
