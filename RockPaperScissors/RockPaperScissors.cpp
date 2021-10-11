@@ -61,37 +61,7 @@ char showWeapon(char option) {
 	return option;
 }
 
-char selectWinner(char uChoice, char cChoice) {
-	if (uChoice == ROCK && cChoice == PAPER)
-	{
-		cout << "Computer Wins! Paper wraps Rock." << endl;
-	}
-	else if (uChoice == PAPER && cChoice == SCISSORS)
-	{
-		cout << "Computer Wins! Scissors cut Paper." << endl;
-	}
-	else if (uChoice == SCISSORS && cChoice == ROCK)
-	{
-		cout << "Computer Wins! Rock smashes Scissors." << endl;
-	}
-	else if (uChoice == ROCK && cChoice == SCISSORS)
-	{
-		cout << "You Win! Rock smashes Scissors." << endl;
-	}
-	else if (uChoice == PAPER && cChoice == ROCK)
-	{
-		cout << "You Win! Paper wraps Rock" << endl;
-	}
-	else if (uChoice == SCISSORS && cChoice == PAPER)
-	{
-		cout << "You Win! Scissors cut Paper." << endl;
-	}
-	else
-	{
-		cout << "It is a Tie! Play again to win the game." << endl;
-	}
-	return (uChoice, cChoice);
-}
+
 
 int main() {
 	char response;
@@ -110,12 +80,40 @@ int main() {
 		cChoice = getComputerWeapon();
 		cout << "Computer Picked: " << showWeapon(cChoice) << endl;
 
-		selectWinner(uChoice, cChoice);
+		
+			if (uChoice == ROCK && cChoice == PAPER)
+			{
+				cout << "Computer Wins! Paper wraps Rock." << endl;
+			}
+			else if (uChoice == PAPER && cChoice == SCISSORS)
+			{
+				cout << "Computer Wins! Scissors cut Paper." << endl;
+			}
+			else if (uChoice == SCISSORS && cChoice == ROCK)
+			{
+				cout << "Computer Wins! Rock smashes Scissors." << endl;
+			}
+			else if (uChoice == ROCK && cChoice == SCISSORS)
+			{
+				cout << "You Win! Rock smashes Scissors." << endl;
+				userWins++;
+			}
+			else if (uChoice == PAPER && cChoice == ROCK)
+			{
+				cout << "You Win! Paper wraps Rock" << endl;
+				userWins++;
+			}
+			else if (uChoice == SCISSORS && cChoice == PAPER)
+			{
+				cout << "You Win! Scissors cut Paper." << endl;
+				userWins++;
+			}
+			else
+			{
+				cout << "It is a Tie! Play again to win the game." << endl;
+			}
+	
 		gameCount++;
-		if (uChoice > cChoice)
-		{
-			userWins++;
-		}
 
 		cout << "Do you want to play again? (Y/N) ";
 		cin >> response;
